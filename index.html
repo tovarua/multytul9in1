@@ -213,72 +213,142 @@ src="https://www.facebook.com/tr?id=1734461650627537&ev=PageView&noscript=1"
 
                 <section class="b5">
                     <h2 class="title"> <span>Відгуки покупців</span></h2>
-                    <style>
-                        /* Стилі для контейнера слайдера */
-                        .testimonial-slider {
-                            width: 500px; /* Ширина слайдера */
-                            overflow: hidden; /* Ховати зайвий контент, який виходить за межі слайдера */
-                        }
+                   
+                 
+                 <style>
+        .slider {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+        }
+    
+        .slides {
+            display: flex;
+            transition: all 0.5s ease;
+        }
+    
+        .slide {
+            width: 100%;
+            position: relative; /* Додано позицію для вирівнювання кнопок */
+        }
+    
+        .testimonial {
+            display: none;
+            text-align: center;
+            border: 2px solid black; /* Додана обводка */
+            padding: 20px; /* Доданий відступ */
+            color: black; /* Колір тексту відгуку */
+            background-color: white; /* Доданий білий фон */
+        }
+    
+        .testimonial.active {
+            display: block;
+        }
+    
+        .rating {
+            color: gold;
+        }
+    
+        /* Додано стилі для імені та прізвища */
+        .testimonial p:first-child {
+            font-weight: bold;
+            font-size: 24px; /* Змінено розмір шрифту */
+            margin-bottom: 10px; /* Доданий відступ */
+        }
+    
+        /* Додано стилі для кнопок перемикання вперед/назад */
+        .prev, .next {
+            position: absolute;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.5); /* Прозорий білий колір */
+            border: none;
+            color: black;
+            font-size: 20px;
+            padding: 10px;
+            cursor: pointer;
+        }
+    
+        .prev {
+            left: 0;
+        }
+    
+        .next {
+            right: 0;
+        }
+    </style>
+    
+    
+    
+    <div class="slider">
+        <div class="slides">
+            <div class="slide" style="display: block;">
+                <div class="testimonial active">
+                    <p class="rating">⭐️⭐️⭐️⭐️⭐️</p>
+                    <p><strong>Оксана Малишко</strong></p>
+                    <p>Чудовий мультитул, купила чоловіку на річницю, задоволений.</p>
+                </div>
+            </div>
+            <div class="slide" style="display: none;">
+                <div class="testimonial">
+                    <p class="rating">⭐️⭐️⭐️⭐️⭐️</p>
+                    <p><strong>Антон Павлов</strong></p>
+                    <p>Чудовий мультитул, і на рибалці знадобився, і ящик підкрутити
+                     чи якусь деталь теж зручно.</p>
+                </div>
+            </div>
+            <div class="slide" style="display: none;">
+                <div class="testimonial">
+                    <p class="rating">⭐️⭐️⭐️⭐️⭐️</p>
+                    <p><strong>Євген Гончар</strong></p>
+                    <p>Купив собі щоб можна було використати, коли немає під рукою інструментів і на диво гарна річ, користуюсь місяць і
+                     задоволений покупкою.</p>
                     
-                        /* Стилі для слайдів */
-                        .testimonial-slide {
-                            display: none; /* Початково ховає всі слайди */
-                        }
-                    
-                        /* Перший слайд буде видимий, інші будуть заховані */
-                        .testimonial-slide:first-child {
-                            display: block;
-                        }
-                    
-                        /* Кнопки навігації */
-                        .prev, .next {
-                            cursor: pointer;
-                            padding: 5px;
-                            background-color: #f2f2f2;
-                            border: 1px solid #ccc;
-                        }
-                    </style>
-                    </head>
-                    <body>
-                    
-                  
-                    
-                    <!-- Слайдер відгуків -->
-                    <div class="testimonial-slider">
-                        <div class="testimonial-slide" style="color: rgba(247, 0, 0, 0.812)">
-                            <h3 style="text-align: center">Оксана Малишко</h3>
-                            <p>Чудовий мультитул, купила чоловіку на річницю, задоволений.</p>
-                        </div>
-                        <div class="testimonial-slide"style="color: rgba(247, 0, 0, 0.812)">
-                            <h3 style="text-align: center"> Антон Павлов  </h3>
-                            <p>Чудовий мультитул, і на рибалці знадобився, і ящик підкрутити <br> чи якусь деталь теж зручно.</p>
-                        </div>
-                        <div class="testimonial-slide" style="color: rgba(247, 0, 0, 0.812)" text-align: center;> 
-                            <h3 style="text-align: center">Євген Гончар </h3>
-                            <p>Купив собі щоб можна було використати, коли немає під рукою інструментів і на диво гарна річ, користуюсь місяць і <br> задоволений покупкою.</p>
-                        </div>
-                      
-                        <!-- Додайте інші відгуки, які вам потрібні -->
-                    </div>
-                      <!-- Кнопки навігації -->
-                      <div class="prev" onclick="changeSlide(-1)">❮ Минулий відгук</div>
-                      <div class="next" onclick="changeSlide(1)">Наступний відгук ❯</div>
-                    
-                    <script>
-                        var slideIndex = 0;
-                    
-                        function changeSlide(n) {
-                            var slides = document.getElementsByClassName("testimonial-slide");
-                            slideIndex += n;
-                            if (slideIndex >= slides.length) { slideIndex = 0; }
-                            if (slideIndex < 0) { slideIndex = slides.length - 1; }
-                            for (var i = 0; i < slides.length; i++) {
-                                slides[i].style.display = "none";  
-                            }
-                            slides[slideIndex].style.display = "block";  
-                        }
-                    </script>
+                </div>
+            </div>
+            
+            
+        </div>
+        <button class="prev" onclick="prevSlide()">❮</button>
+        <button class="next" onclick="nextSlide()">❯</button>
+    </div>
 
+    <script>
+        let slideIndex = 0;
+        showSlides();
+    
+        function showSlides() {
+            const slides = document.querySelectorAll('.slide');
+            const testimonials = document.querySelectorAll('.testimonial');
+    
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = 'none';
+                testimonials[i].classList.remove('active');
+            }
+    
+            if (slideIndex >= slides.length) {
+                slideIndex = 0;
+            } else if (slideIndex < 0) {
+                slideIndex = slides.length - 1;
+            }
+    
+            slides[slideIndex].style.display = 'block';
+            testimonials[slideIndex].classList.add('active');
+        }
+    
+        function prevSlide() {
+            slideIndex--;
+            showSlides();
+        }
+    
+        function nextSlide() {
+            slideIndex++;
+            showSlides();
+        }
+    </script>
+    
+    </section>
+                   
 
            <br>
                   </span>
